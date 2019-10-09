@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Home</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name = "format-detection" content = "telephone=no" />
+    <meta charset="utf-8">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/main.css">
+  </head>
+  <body>
+
+    <div class="container">
+      
+      <!-- beg. tabs -->
+      <div class="tabs">
+
+        <!-- tabs header -->
+        <div class="tabs__header">
+          <h2 class="tabs__title">Please select one font</h2>
+          <ul class="tabs__nav">
+            <li class="tabs__nav-item tabs__nav-item--active" data-tab="js-tab-one">my fonts</li>
+            <li class="tabs__nav-item" data-tab="js-tab-two">buy fonts</li>
+          </ul>
+        </div>
+        <!-- tabs header END -->
+        
+        <!-- tabs content -->
+        <div class="tabs__content">
+          
+          <!-- beg. tabs item -->
+          <div class="tabs__content-item js-tab-one tabs__content-item--active">
+            
+            <div class="tabs__radios">
+              <div class="tabs__radios-col">
+                <label class="tabs__radios-item tabs__radios-item--vertical font-radio">
+                  <input type="radio" name="font-color">
+                  <span class="font-radio__label font-radio__label--skin-green" data-content="M">Marriweather project is led by Sorkin Type</span>
+                </label>  
+              </div>
+              <div class="tabs__radios-col">
+                <label class="tabs__radios-item font-radio">
+                  <input type="radio" name="font-color">
+                  <span class="font-radio__label font-radio__label--skin-pink" data-content="R">Roboto doesn't compromise, allowing letters</span>
+                </label>
+                <label class="tabs__radios-item font-radio">
+                  <input type="radio" name="font-color">
+                  <span class="font-radio__label font-radio__label--skin-blue" data-content="NS">Noto Sans covers over 30 scripts</span>
+                </label>
+              </div>
+            </div>
+
+          </div>
+          <!-- end. tabs item -->
+
+          <!-- beg. tabs item -->
+          <div class="tabs__content-item js-tab-two">
+            <div class="tabs__dummy-content">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis perferendis atque in, blanditiis officia aperiam rem magni, dignissimos tempore quibusdam dolorem placeat, maxime enim quaerat sequi consectetur molestiae commodi ad.
+            </div>
+          </div>
+          <!-- end. tabs item -->
+
+        </div>
+        <!-- tabs content END -->
+
+      </div>
+      <!-- end. tabs -->
+
+    </div>
+    <button>dawdaw</button>
+
+    <script>
+      
+      if (window.NodeList && !NodeList.prototype.forEach) {
+          NodeList.prototype.forEach = function (callback, thisArg) {
+              thisArg = thisArg || window;
+              for (var i = 0; i < this.length; i++) {
+                  callback.call(thisArg, this[i], i, this);
+              }
+          };
+      }
+
+      // Tabs logic
+      let tabNav      = document.querySelectorAll('.tabs__nav>li'),
+          tabContent  = document.querySelectorAll('.tabs__content-item'),
+          tabName;
+
+        tabNav.forEach(function (item) {
+            item.addEventListener('click', selectTabNav)
+        });
+
+        function selectTabNav() {
+            tabNav.forEach(function (item) {
+              item.classList.remove('tabs__nav-item--active');
+            });
+            this.classList.add('tabs__nav-item--active');
+            tabName = this.getAttribute('data-tab');
+            selectTabContent(tabName);
+        }
+
+        function selectTabContent(tab) {
+            tabContent.forEach(function (item) {
+                if (item.classList.contains(tab)) {
+                    item.classList.add('tabs__content-item--active');
+                } else {
+                    item.classList.remove('tabs__content-item--active');
+                }
+            });
+        }
+
+      // Tabs logic END
+
+
+      function parseUrl(str) {
+        if (str){
+
+          let url = document.createElement('a');
+              url.href = str;
+
+          return url;
+
+        }
+        else{
+          console.log('please enter a value');
+        }
+      }
+
+      let obj = parseUrl('https://ffwagency.com/do/any.php?a=1#foo');
+      console.log(obj.host);
+      console.log(obj.pathname);
+      console.log(obj.hash);
+
+
+      // ---------------
+      const data = {
+        names : ['a', 'b', 'c'],
+        enrolled : true,
+        marksss : {
+          'a' : [1, 1, 1],
+          'b' : [2, 2, 2],
+          'c' : [3, 3, 3],
+        }
+      }
+
+
+      let dataClone = {};
+
+      for (let key in data) {
+        key == 'enrolled' ? dataClone[key] = false :
+        key == 'marksss'  ? dataClone['marks'] = data[key] :
+        dataClone[key]    = data[key];
+      }
+
+
+      console.log(dataClone);
+
+
+
+    </script>
+
+  </body>
+</html>

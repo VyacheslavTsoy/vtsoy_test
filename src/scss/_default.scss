@@ -1,0 +1,193 @@
+$font-size: 18px;
+$line-height: $font-size+2px;
+$color: #000;
+$background: #fff;
+$font-family: 'Montserrat';
+
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  font-size: $font-size;
+  line-height: $line-height;
+  color: $color;
+  background: $background;
+  font-family: $font-family, sans-serif;
+  font-weight: normal;
+  font-style: normal;
+
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.container{
+  width: 100%;
+  max-width: 1170px;
+  padding: 0 15px;
+  margin: 100px auto;
+
+  @media only screen and (max-width: 992px) {
+    margin: 50px auto;  
+  }
+
+}
+
+*{
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+button, input{
+  font-family:$font-family, sans-serif;
+  outline: none;
+}
+
+::selection,
+::-moz-selection {
+  background: #000;
+  color: #fff;
+}
+
+/*----------------------> Links And buttons <------------------*/
+a {
+  color:$color;
+  outline:none;
+  text-decoration:none;
+  cursor:pointer;
+}
+a:hover{
+  color:$color;
+  text-decoration:none;
+}
+
+.btn{
+  display:inline-block;
+  padding:0 0 0;
+  margin: 0 0 0;
+  font-size: px;
+  line-height: px;
+  color:$color;
+ }
+  .btn:hover{
+    background:$color;
+    color:#000;
+  }
+
+
+/*----------------------> Basic Classes <------------------*/
+.reg {text-transform:uppercase}
+.f_left {float:left}
+.f_right {float:right}
+.al_left{text-align: left;}
+.al_right {text-align:right}
+.al_center {text-align:center}
+
+.it{font-style:italic}
+.let{letter-spacing:-1px}
+
+.full_w{
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+}
+
+.val_mid{vertical-align: middle;}
+
+/*----------------------> Positions <------------------*/
+.p_abs{position: absolute;}
+.p_rel{position: relative;}
+.p_fix{position: fixed;}
+.clear {clear:both;width:100%;line-height:0;font-size:0;}
+.clearfix:after {
+  content: "";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.wrapper {overflow:hidden}
+
+/*----------------------> Displays <------------------*/
+
+.d_block{ display:block;}
+.d_ib{ display:inline-block;}
+.d_none{ display:none;}
+.d_tc{ display:table-cell;}
+.d_t{ display:table;}
+
+.font-radio{
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+
+  input{
+    display: none;
+  }
+
+  input:checked + &__label{
+    color: rgba(0,0,0,0.5);
+  }
+
+  &__label{
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+    line-height: 1.23;
+    padding: 0 0 0 0px;
+
+    &::before{
+      display: flex;
+      align-items: flex-end;
+      width: 70px;
+      height: 70px;
+      min-width: 70px;
+      padding: 10px;
+      font-weight: 700;
+      margin-right: 20px;
+      border-radius: 10px;
+      color: rgba(255,255,255,.5);
+      background-color: pink;
+      content: attr(data-content);
+    }
+
+    @media only screen and (max-width: 575px) {
+      font-size: 16px;
+
+      &::before{
+        width: 40px;
+        height: 40px;
+        min-width: 40px;
+      }
+
+    }
+
+    &--skin-green{
+      &::before{
+        background-color: green;
+      }
+    }
+
+    &--skin-pink{
+      &::before{
+        background-color: pink;
+      }
+    }
+
+    &--skin-blue{
+      &::before{
+        background-color: blue;
+      }
+    }
+
+  }
+
+}
